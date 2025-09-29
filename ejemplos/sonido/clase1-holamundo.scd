@@ -1,0 +1,47 @@
+// Clase 1: Hola Mundo
+// CAVLP 25O
+
+"Hola Mundo!".postln;
+// clase 1: introducción a SC
+
+() // parámetros
+{} // funciones
+|| // argumentos
+;  // salto de línea
+~  // variable global
+.
+,
+A-Z 0-9
+
+s.boot;
+
+// Primer sonido, apagar con ctrl + punto
+{SinOsc.ar(440, 0, 0.5)}.play
+
+a=Pbind(\note, Pseq([0, 1, 2, 3, 4, 5, 6], inf)).play
+
+a.stop;
+a.play;
+
+\dur
+\note
+\amp
+\pan
+
+// ProxySpace
+
+// examples
+
+p = ProxySpace.push(s.boot); // use ProxySpace as current environment.
+
+~out.play;
+
+~out = { SinOsc.ar([600, 607], 0, 1) };
+
+p.clear(8); // end and clear all in 8 sec.
+
+
+p.pop; // move out.
+
+
+
