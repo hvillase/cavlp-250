@@ -38,3 +38,31 @@ p.fadeTime=5; // creamos un desvanecimiento de amplitud
 ~out={SinOsc.ar(500, 0, 1)*EnvGen.kr(Env.perc(1, 0.5), 1, doneAction:2)}
 
 // Patrones con ProxySpace
+
+// ejemplos escritos en clase
+
+s.boot;
+s.meter;
+s.scope;
+// ctrl + enter
+// ctrl + shift + p
+// JITLib
+
+p=ProxySpace.push(s.boot);
+
+~out.play;
+
+~out={SinOsc.ar(440, 0, 1)*EnvGen.kr(Env.perc(0.01, 1),1,doneAction:2)}
+
+~out={SinOsc.ar(880, 0, 1)*EnvGen.kr(Env.perc(0.01, 2),1,doneAction:2)}
+
+~out={SinOsc.ar(1080, 0, 1)*EnvGen.kr(Env.new([0,1,0.5,0.5,0],[0.1,0.2,0.5,1]),1,doneAction:2)}
+
+~out.pause;
+~out.resume;
+~out.stop;
+
+Env.perc(0.1,0.1).plot
+Env.adsr(0.1,0.2,0.5,1).plot
+Env.help
+Env.new([0,1,0.5,0.5,0],[0.1,0.2,0.5,1]).plot
