@@ -1,0 +1,6 @@
+{
+"_base":"https://raw.githubusercontent.com/hvillase/cavlp-250/main",
+"monedas": "monedas/monedas.wav",
+"cierre": "cierre/cierre.wav",
+"kling": "kling/kling.wav"
+}
