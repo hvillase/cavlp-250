@@ -272,10 +272,10 @@ Synth(\sonido10, [\amp, 1]);
 ~seq1.play.quant(4); //
 ~seq1.stop;
 
-~seq2.play.quant(4);
+~seq2.play.quant(4); //
 ~seq2.stop;
 
-~seq3.play.quant(4);
+~seq3.play.quant(4); //
 ~seq3.stop;
 
 ~seq4.play.quant(4);

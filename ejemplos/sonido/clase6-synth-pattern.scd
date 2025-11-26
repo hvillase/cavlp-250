@@ -84,20 +84,24 @@ SynthDef(\ruido, {|freq=440, pan=0, at=0.01, sus=0.01 rel=0.1, amp=0.5, out=0|
 
 Synth(\ruido, [\amp, 1, \rel, 0.2])
 
-// Pattern con Pdef
+// Pattern con Pdef > Pattern definition
 
 (
 ~seq1=Pdef(\seq, Pbind(\instrument,\saw,
-	\dur, 0.125,
-	\amp, 1,
-	\freq, Pseq([500, 800, 900, 400].mirror, inf)));
+	\dur, Pseq([0.125],inf),
+	\amp, 0.25,
+	\note, Pseq([2,  4, 5, 7, 12].mirror,inf),
+	\rel, Pseq([0.4], inf)
+));
 );
 
 (
 ~seq2=Pdef(\seq2, Pbind(\instrument,\pulse,
-	\dur, 0.25,
+	\dur, Pseq([0.5, 0.25, 0.25], inf),
 	\amp, 0.6,
-	\freq, Pseq([200, 400].mirror, inf)));
+	\degree, Pseq([0,4,6,7].mirror, inf),
+	\scale, Scale.major
+))
 );
 
 (
@@ -110,14 +114,16 @@ Synth(\ruido, [\amp, 1, \rel, 0.2])
 (
 ~seq4=Pdef(\seq4, Pbind(\instrument, \sine,
 	\amp, 1,
-	\dur, 1,
-	\freq, 300))
+	\dur, 0.5,
+	\freq, 200))
 );
+
 
 ~seq1.play.quant_(1);
 ~seq2.play.quant_(1);
 ~seq3.play.quant_(1);
 ~seq4.play.quant_(1);
+
 
 ~seq1.stop;
 ~seq2.stop;
@@ -127,11 +133,43 @@ Synth(\ruido, [\amp, 1, \rel, 0.2])
 // Tocar con Proxy
 
 p=ProxySpace.push(s.boot);
+p.fadeTime=3
 
+~salida1.play
+~salida2.play
+~salida3.play
 
+~salida1={Pan2.ar(SinOsc.ar(347,0,0.2))}
+
+~salida2={Pan2.ar(LFTri.ar(200,0,LFTri.ar(8,0,-0.2,0.2)),0)}
+
+~salida3={PinkNoise.ar(0.4).dup(2)}
+
+~salida1.stop(10)
+~salida2.stop(10)
+~salida3.stop(10)
 
 p.clear; // limpia el entorno Proxy
 p.pop; // nos saca del entorno Proxy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
