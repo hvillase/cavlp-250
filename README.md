@@ -52,5 +52,4 @@ Supercollider: SynthDef
 Hydra + Strudel: Proyecto audiovisual 2  
 Flok: ensamble final  
 ## Clase 11
-Presentación final en la sala isóptica DCSH, 10 de diciembr de 2025 de 8: a 11:00  
-
+Presentación final en la sala isóptica DCSH, 10 de diciembre de 2025 de 8: a 11:00  
